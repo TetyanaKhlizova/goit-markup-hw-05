@@ -8,6 +8,8 @@
   --bkground-color-title: #2f303a;
   --bkground-color-title-second: #c4c4c4;
   --bkground-color-teamandbtn: #f5f4fa;
+  --bkground-color-activity: rgba(47, 48, 58, 0.8);
+  --bkgpound-color-backdrop: rgba(0, 0, 0, 0.2);
   --social-icon-color: #afb1b8;
   --footer-icon-bcgcolor: #44454e;
   --footer-contact-color: rgba(255, 255, 255, 0.6);
@@ -339,7 +341,26 @@ img {
   flex-basis: calc(100% / 3 - var(--card-set-gap));
   margin-right: var(--card-set-gap);
 }
+.activity-wrapper {
+  position: relative;
+}
 
+.activity-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--title-color);
+  background-color: rgba(47, 48, 58, 0.8);
+  margin: 0;
+  padding: 27 90;
+  height: 70px;
+  width: 100%;
+}
 /* team section*/
 
 .team-section {
@@ -662,4 +683,56 @@ img {
   margin: 0;
   padding: 63px 24px;
   height: 100%;
+}
+
+/* modal window*/
+.backdrop {
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bkgpound-color-backdrop);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.modal {
+  position: relative;
+  width: 528px;
+  min-height: 581px;
+  background-color: var(--title-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(400px, 400px);
+}
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--title-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.close-svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--logo-header-color);
 }
